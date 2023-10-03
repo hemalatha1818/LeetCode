@@ -3,8 +3,6 @@ class Solution:
         cs=0
         s=0
         maxi=-1
-        if len(nums)==1:
-            return nums[0]
         for i in range(len(nums)):
             cs=cs+nums[i]
             if cs<0:
