@@ -1,10 +1,16 @@
+from collections import defaultdict,Counter
 class Solution:
     def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
         l=[]
-        for i in range(len(nums)):
-            x=len(set(nums[:i+1]))
-            y=len(set(nums[i+1:]))
-   
-            l.append(x-y)
+        p=defaultdict(int)
+        s=Counter(nums)
+        for i in nums:
+            if s[i]>1:
+                s[i]-=1
+            else:
+                if i in s:
+                    s.pop(i)
+            p[i]+=1
+            l.append(len(p)-len(s))
         return l
         
