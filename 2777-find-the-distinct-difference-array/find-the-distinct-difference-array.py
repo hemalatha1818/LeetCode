@@ -8,7 +8,6 @@ class Solution:
             if s[i]>1:
                 s[i]-=1
             else:
-                
                 s.pop(i)
             p[i]+=1
             l.append(len(p)-len(s))
