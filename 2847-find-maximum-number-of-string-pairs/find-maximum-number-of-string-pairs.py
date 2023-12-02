@@ -4,15 +4,8 @@ class Solution:
         c=0
         s={}
         for i in words:
-            j="".join(sorted(i))
-            if j not in s:
-                s[j]=1
-            else:
-                s[j]+=1
-        for i in s:
-            if s[i]>1:
+            if i in s:
                 c+=1
+            s[i[::-1]]=True
         return c
-
-
         
