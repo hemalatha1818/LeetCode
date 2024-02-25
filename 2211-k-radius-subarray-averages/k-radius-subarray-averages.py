@@ -1,21 +1,22 @@
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
-        l=[]
-        sum=0
-        
-        if k==0:
-            return nums
-        if k>len(nums) or 2*k+1>len(nums):
-            return [-1]*len(nums)
-        for i in range(0,2*k+1):
-            sum+=nums[i]
-        l.append((sum)//(2*k+1))
-        m=0
-        for j in range(2*k+1,len(nums)):
-            sum-=nums[m]
-            sum+=nums[j]
-            m+=1
-            l.append((sum)//(2*k+1))
-        
-        return [-1]*k+l+[-1]*k
+        n = len(nums)
+        windowSize = 2 * k + 1
+
+        windowSum = 0
+        result = [-1] * n
+
+        if n < windowSize:
+            return result
+
+        for i in range(n):
+            windowSum += nums[i]  # Add nums[i] to the window sum
+
+            if i - windowSize >= 0:
+                windowSum -= nums[i - windowSize]  # Remove nums[i - windowSize] from the window sum
+
+            if i >= windowSize - 1:
+                result[i - k] = windowSum // windowSize  # Calculate and store the average in the result
+
+        return result
         
