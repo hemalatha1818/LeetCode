@@ -1,24 +1,17 @@
-from collections import defaultdict
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        x=""
-        d=defaultdict(int)
         maxi=0
-        if s=="":
-            return 0
-        for i in range(len(s)):
-            if s[i] not in x:
-                d[s[i]]=1
-                x=x+s[i]
-            else:
-                break
-            maxi=len(x)
-        for j in range(i,len(s)):
-            if s[j] in x:
-                pos=x.index(s[j])
-                x=x[pos+1:]
-            
-            x=x+s[j] 
-            d[s[j]]+=1
-            maxi=max(maxi,len(x))
+        if len(s)==1:
+            return 1
+        for i in range(0,len(s)):
+            d={}
+            c=0
+            for j  in range(i,len(s)):
+                if s[j] not in d:
+                    c+=1
+                else:
+                    break
+                d[s[j]]=d.get(s[j],0)+1
+            maxi=max(maxi,c)
         return maxi
+        
