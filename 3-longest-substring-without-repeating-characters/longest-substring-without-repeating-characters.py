@@ -6,17 +6,12 @@ class Solution:
         maxi=0
    
         while(right<len(s)):
-            if s[right] not in d:
-
-                d[s[right]]=right
-                maxi=max(maxi,right-left+1)
-                right+=1
-            else:
-                if d[s[right]]+1>left:
-                    left=d[s[right]]+1
-                d[s[right]]=right
-                right+=1
-                maxi=max(maxi,right-left)
+            if s[right] in d:
+                left=max(left,d.get(s[right],0)+1)
+            d[s[right]]=right
+            maxi=max(maxi,right-left+1)
+            right+=1
+            
             
         return maxi
         
