@@ -9,9 +9,9 @@ class Solution:
         while(right<len(s)):
             if s[right] not in d:
                 d.add(s[right])
-                
-                maxi=max(maxi,right-left+1)
                 right+=1
+                maxi=max(maxi,right-left)
+               
             else:
                 d.remove(s[left])
                 left=left+1
