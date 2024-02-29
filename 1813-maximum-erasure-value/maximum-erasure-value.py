@@ -1,17 +1,23 @@
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
         l=0
-        s=set()
-        maxi=0
+        j=0
+        i=0
         sum=0
-        for i in range(len(nums)):
-            while l<i and nums[i] in s:
-                s.remove(nums[l])
-                sum-=nums[l]
-                l+=1
-            s.add(nums[i])
-            sum+=nums[i]
-            maxi=max(maxi,sum)
+        maxi=0
+        s=set()
+        while j<len(nums):
+            if nums[j] not in s:
+                sum+=nums[j]
+                s.add(nums[j])
+                j+=1
+                maxi=max(maxi,sum)
+            else:
+                sum=sum-nums[i]
+                s.remove(nums[i])
+                i+=1
+                
         return maxi
+
 
       
