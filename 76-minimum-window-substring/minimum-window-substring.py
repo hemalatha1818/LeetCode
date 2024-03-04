@@ -2,10 +2,8 @@ from collections import Counter
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         have=0
-        p={}
-        for i in t:
-            p[i]=p.get(i,0)+1
-
+        
+        p=Counter(t)
         need=len(p)
         window={}
         l=0
