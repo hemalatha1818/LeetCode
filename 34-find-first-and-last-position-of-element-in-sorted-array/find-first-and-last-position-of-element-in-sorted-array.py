@@ -1,6 +1,8 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         start=self.lower(nums,target)
+        if start==-1:
+            return -1,-1
         end=self.upper(nums,target)
         return start,end
     def lower(self,nums,target):
