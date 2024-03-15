@@ -1,5 +1,9 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        start=self.lower(nums,target)
+        end=self.upper(nums,target)
+        return start,end
+    def lower(self,nums,target):
         low=0
         high=len(nums)-1
         start=-1
@@ -13,8 +17,11 @@ class Solution:
                 low=mid+1
             else:
                 high=mid-1
+        return start
+    def upper(self,nums,target):
         low=0
         high=len(nums)-1
+        end=-1
         while low<=high:
             mid=(low+high)//2
             if nums[mid]==target:
@@ -24,5 +31,6 @@ class Solution:
                 low=mid+1
             else:
                 high=mid-1
+        return end
         
-        return start,end
+    
