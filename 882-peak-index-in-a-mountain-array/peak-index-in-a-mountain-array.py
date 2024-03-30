@@ -1,7 +1,6 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        if len(arr)<3:
-            return 0
+        
         
         low=1
         high=len(arr)-2
