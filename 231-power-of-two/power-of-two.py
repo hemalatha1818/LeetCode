@@ -1,11 +1,7 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        c=0
-        if n<=0:
+        if n==0:
             return False
-        for i in range(0,32):
-            if (n>>i)&1==1:
-                c+=1
-        if c==1:
+        if n&n-1==0:
             return True
         return False
