@@ -1,7 +1,7 @@
 import sys
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
-        nums_k=float(-inf)
+        nums_k=float('-inf')
         stack=[]
         for i in range(len(nums)-1,-1,-1):
             if nums[i]<nums_k:
