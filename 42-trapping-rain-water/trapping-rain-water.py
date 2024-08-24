@@ -6,7 +6,7 @@ class Solution:
         maxi_left=-99999
         maxi_right=-99999
         while left<right:
-            if height[left]<=height[right]:
+            if height[left]<height[right]:
                 if height[left]>maxi_left:
                     maxi_left=height[left]
                 total+=maxi_left-height[left]
